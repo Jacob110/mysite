@@ -1,0 +1,30 @@
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+import tweepy
+
+consumer_key="rYz13mLQ1fkniCdDXTNClg"
+consumer_secret="rPJItrQhWrzNwk2w2Tlxf8FwQTvRjf9aLHyizAJTn4"
+access_token="107652370-9FwXlykEa2BX144Ct5DiljV27rSY6HjnklVkTaCs"
+access_token_secret="pg3GmRiss8Hbv8LtzXUX0q4K4D42vOvcmZMSJSLbM"
+
+
+# Create your views here.
+def get_tweets(request):    
+    #tweets=[]
+    #auth
+    auth=tweepy.OAuthHandler(consumer_key,consumer_secret)
+    auth.set_access_token(access_token,access_token_secret)
+    #api
+    api=tweepy.API(auth)
+    #tweet=api.me().timeline()
+    
+    #timeline
+    tweets=api.home_timeline()
+
+
+    #for t in tweet:
+        #_user=t.author
+        #tweets.append("@"+t.author.screen_name+":"+t.text)
+
+    return render_to_response('tweets.html',{'tweets':tweets})
+    

@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block content %}
+    <div>
+    <h2>My Tweets</h2>
+	<p>There is {{ tweets|length }} tweets to display.</p>
+	<p><hr><p>
+	<div>
+	    
+		    {% for t in tweets %}
+			<table class="table">
+			    <tr class="danger"><a href="javascript:void(0)"onclick="showModal(this)" data-toggle="modal">@{{ t.author.screen_name }} <span>{{ t.author.name }}</span>:</a>{{ t.text }}</tr>
+ 			</table>
+	    	    {% endfor %}
+	    
+	</div> 
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	    <div class="modal-header">
+    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    		<h2 style="margin-left:220px;"id="myModalLabel">个人资料</h2>
+  	    </div>
+  	    <div class="modal-body">
+    		<p id="pName">to be continued…</p>
+  	    </div>
+  	    <div class="modal-footer">
+    		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+    		
+  	   </div>
+	</div>       
+	
+    </div>
+    <script type="text/javascript">
+	function showModal(obj){
+	    $('#myModal').modal('show');
+	    $('#pName').html($("span",this).html());
+	}
+    </script>
+{% endblock %}

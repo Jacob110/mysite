@@ -1,0 +1,136 @@
+body {
+	font-family: "微软雅黑","宋体","黑体","Arial";
+	font-size: 13px; 
+    margin:auto;
+    padding-top: 60px;
+    /*background-color: #D2D8DE;*/
+    background: #f1f1f1;
+    background-color: #d7d7d7;
+}
+.navbar-fixed-top .container{
+    width:940px;
+    margin:0 auto;
+}
+.container{
+    width:960px;
+    margin:0 auto;
+    
+}
+.span6{
+    width:450px;
+} 
+td{
+    text-align:right;
+    padding-left:5px;
+}
+hr{
+    margin:0;
+    border-bottom:1px solid #B1B9B1;	
+}
+h2{
+    font-size:18px;
+    font-weight:bold;
+    line-height:20px;	
+}
+.subheader{
+    color:#999;
+    margin-top:3px;	
+}
+.content-main{
+	width:692px;
+
+}
+.content-nav{
+	width:212px;
+	
+}
+.content-main{
+	
+	border-radius: 7px;
+}
+.content-main,.content-nav{
+	margin:0 14px;
+	float:left;
+}
+/*.content-nav ul{
+	list-style:square;
+	margin:0 0 10px 15px;
+}
+*/
+.content-nav a{
+	border:none!important;
+	text-decoration:none;
+}
+ul{
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+li{
+
+	display: list-item;
+}
+
+.post{
+	background: #fff;
+	border:1px solid #cdcdcd;
+	margin-bottom:20px;
+	border-radius: 7px;
+	-webkit-box-shadow:1px 1px 15px #548795;
+	box-shadow:1px 1px 15px #548795;
+}
+.post .inner-content{
+	padding:20px;
+}
+.post .meta{
+	border-top: 1px solid #eaeaea;
+	color:#959595;
+	font-size: 11px;
+	line-height: 11px;
+	padding: 10px 20px;
+}
+a:hover{
+	color:#d54e21;
+}
+.content-nav{
+	/*position: fixed;*/
+	right: 120px;
+}
+
+.category,.tags{
+	border-radius: 7px;
+	box-shadow: 1px 1px 2px #a7a8ad;
+	background: #fafcfd;
+	margin:20px 5px;
+}
+.category h4,.tags h4{
+	color: #fff;
+	font-size: 1.2em;
+	border-bottom: 1px solid #DADFE1;
+	height: 1.5em;
+	line-height: 1.5em;
+	background: #2EB1E8;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	padding: 5px;
+	text-indent: 1em;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+.category ul li,.tags ul li{
+	border-bottom: 1px solid #DADFE1;
+	border-top: 1px solid #fff;
+	overflow: hidden;
+	padding: 5px;
+}
+
+/* Comment Form Style*/
+form#commentform textarea{
+	width:98%;
+}
+
+.cmtdiv input{
+	width:96%;
+}
+.cmtsite input{
+	width:98%;
+}

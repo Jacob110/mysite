@@ -1,0 +1,68 @@
+{% extends "index.html" %}
+{% load bootstrap_toolkit %}
+{% block content %}
+    
+	<div class="header-inner">
+	    <h2>账户信息</h2>
+	    <p class="text-primary">个人简介以及账户基本信息</p>	
+	    <a href="javascript:void(0)" onclick="showModal()" role="button" class="btn btn-primary" data-toggle="modal">Modal</a>
+	   
+	</div>
+	<p><hr></p>
+	<div>
+	    <table class="table">		
+		<tr class="danger">
+		    <td width="60px;">用户名</td>
+		    <td>JJ_Jacob</td>
+		    <td colspan="5"></td>
+		</tr>
+		<tr class="waring">
+		    <td>邮箱</td>
+		    <td>yjj.jacob@gmail.com</td>
+		    <td colspan="5"></td>
+		</tr>
+		<tr class="danger">
+		    <td>坐标</td>
+		    <td>魔都</td>
+		    <td colspan="5"></td>		
+		</tr>
+	    </table>
+	</div>
+	<script type="text/javascript">
+	    function showModal(){
+		$('#myModal').modal('show');
+	    }	
+	</script>
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  	    <div class="modal-header">
+	    		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    		<h3 id="myModalLabel">Modal header</h3>
+	  	    </div>
+	  	    <div class="modal-body">
+	    		<p>One fine body…</p>
+	  	    </div>
+	  	    <div class="modal-footer">
+	    		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+	    		<button class="btn btn-primary">Save changes</button>
+	  	   </div>
+		</div>  
+
+    <form class="form-horizontal">{% csrf_token %}
+	{% for field in form %}
+	    
+	    <div class="control-group">
+	    <label class="control-label">坐标</label>
+	    <div class="controls">
+	      <p class="">魔都</p>
+	    </div>
+	</div>
+	<div class="control-group">
+	    <label class="control-label">性取向</label>
+	    <div class="controls">
+	      <p class="">双性恋</p>
+	   </div>
+        </div>	
+	{% endfor %}
+        
+    </form>
+{% endblock %}

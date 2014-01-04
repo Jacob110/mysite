@@ -1,0 +1,46 @@
+<div class="post">
+	<div id="comments" class="inner-content">					
+		<form action="{% url 'post_comment' %}" method="post" id="commentform" >
+			<fieldset>
+				<legend>留言</legend>
+				{% csrf_token %}
+				{{f.msg_avatar}}
+				{{ f.msg_reply }}
+				{{ f.content_type }}
+				{{ f.object_id }}
+				
+				<div style="float:left;width:45%;" class="cmtdiv">
+				    <label for="msg_user">昵称 <span>*</span></label>
+				    {{ f.msg_user }}		
+				</div>
+	            <div style="float:right;width:50%;" class="cmtdiv">
+					<label for="msg_email">电子邮箱（会为你保密） <span>*</span></label>
+				    {{ f.msg_email }}			
+				</div>
+	            <div style="clear:both;" class="cmtsite">
+					<label for="msg_site">网址</label>
+					{{ f.msg_site }}
+				</div>
+	            <div >
+					<label for="msg_content">您的留言 <span>*</span></label>	
+					{{ f.msg_content }}
+				</div>
+	            <div class="no-border">
+				    <input class="btn btn-primary" type="submit" value="提交评论" tabindex="5" />
+				</div>
+			</fieldset>
+		</form>					
+	</div>
+	<div id="resultmodal" class="modal hide fade">
+		<div class="modal-header" >
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>需要提醒您：</h3>
+		</div>
+		<div class="modal-body">
+			<p>评论成功</p>
+		</div>
+		<div class="modal-footer">
+			<input class="button" type="button" value="确定" data-dismiss="modal"/>
+		</div>
+	</div>
+</div>

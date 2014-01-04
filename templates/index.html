@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load bootstrap_toolkit %}
+{% load url from future %}
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8">
+    <title>Jacob | Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="wb:webmaster" content="3caf5a5b94e6991e" />
+    {% bootstrap_stylesheet_tag %}
+    {% bootstrap_stylesheet_tag "responsive" %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="/static/js/jquery.form.js"></script>
+    <script src="/static/js/comments.js"></script>
+    <link href="/static/syntaxhighlighter/styles/shCore.css" type="text/css" rel="stylesheet"/>
+    <link href="/static/syntaxhighlighter/styles/shThemeDefault.css" type="text/css" rel="stylesheet"/>
+    <link href="/static/css/style.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="/static/syntaxhighlighter/styles/shCoreDefault.css"/>
+    <link href="/static/css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
+    
+    <script type="text/javascript" src="/static/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type = "text/javascript"  src = "/static/syntaxhighlighter/scripts/shBrushCss.js" ></script>
+    <script type = "text/javascript"  src = "/static/syntaxhighlighter/scripts/shBrushJScript.js" ></script>
+    <script type = "text/javascript"  src = "/static/syntaxhighlighter/scripts/shBrushPhp.js" ></script>
+    <script type = "text/javascript"  src = "/static/syntaxhighlighter/scripts/shBrushSql.js" ></script>
+    <script type = "text/javascript"  src = "/static/syntaxhighlighter/scripts/shBrushVb.js" ></script>
+    <script type = "text/javascript"  src = "/static/syntaxhighlighter/scripts/shBrushPython.js" ></script>
+    <script type = "text/javascript"  src = "/static/syntaxhighlighter/scripts/shBrushJava.js" ></script>
+    <link type="text/css" rel="stylesheet" href="/static/syntaxhighlighter/styles/shCoreDefault.css"/>
+    <script  type = "text/javascript">
+        SyntaxHighlighter.config.clipboardSwf = "/static/syntaxhihglighter/scripts/clipboard.swf";
+        
+        SyntaxHighlighter.all();
+    </script>
+    {% bootstrap_javascript_tag %}
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="https://twitter.com/JJ_Jacob">布布</a>
+            <ul class="nav">
+                <li><a href="{% url 'index' %}">首页</a></li>
+                <li><a href="{% url 'books.views.search' %}">Django</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bootstrap<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a>Vertical</a></li>
+                        <li><a>Horizontal</a></li>
+                        <li><a>Inline</a></li>
+                        <li><a>Search</a></li>
+                        <li><a>Using template</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'twitter' %}">TwitterApi</a></li>
+                <li><a href="{% url 'blog' %}">博客</a></li>
+                <li><a href="{% url 'profile' %}">个人信息</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    {% bootstrap_messages %}
+    {% block content %}Empty page{% endblock %}
+    {% include 'sidebar.html' %}
+    <footer class="row">
+        <div class="span6">
+            <p>This is <a href="">personal study test website</a></p>
+        </div>
+        <div class="span6" style="text-align:right;">
+            <p>
+                &copy; <a href="http://twitter.com/JJ_Jacob">JJ_Jacob</a> 2013
+                <a href="">license</a>
+            </p>
+        </div>
+    </footer>
+
+</div> <!-- container -->
+
+</body>
+</html>

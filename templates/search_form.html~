@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="container">
+	<h1>Search</h1>    
+    </div>
+    {% if errors %}
+		<ul>
+			{% for error in errors %}
+				<li> {{ error }} </li>
+			{% endfor %}	
+		</ul>
+		
+	{% endif %}
+    {% load bootstrap_toolkit %}
+    <form action="/search/" method="get">
+    	{{ form|as_bootstrap }}
+	<div class="form-inline">
+	    <input type="text" id="q" name="q">
+            <button type="submit" class="btn btn-primary">Search</button>	
+	</div>        	
+    </form>
+{% endblock %}
+
