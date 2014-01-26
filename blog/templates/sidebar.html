@@ -1,0 +1,62 @@
+{% load base_extras %}
+<div class="content-nav">
+	<div class="author">
+		<ul class="side-menu">
+			<li>关于作者</li>
+			<li>
+				<a href="https://twitter.com/JJ_Jacob">
+					<i class="icon-twitter" title="Twitter"><span>@JJ_Jacob</span>
+					</i>
+				</a>
+				
+			</li>
+			<li>
+				<a href="https://twitter.com/JJ_Jacob">
+					<i class="icon-google-plus" title="Google+"><span>Google+</span>
+					</i>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/JJ_Jacob">
+					<i class="icon-github" title="GitHub">
+						<span>GitHub</span>
+					</i>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="category">
+		<ul class="side-menu">
+			<li>分类目录</li>
+			<li><a href="{% url 'blog' %}" class="js-side-nav-item {% nav_item_selected request '/blog/' %}">全部</a></li>
+			{% for category in categories %}
+				<li><a href="{{ category.get_absolute_url }}" class="js-side-nav-item {% nav_item_selected request category.get_absolute_url %}">{{ category.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="tags">
+		<ul class="side-menu">
+			<li>标签</li>
+			{% for tag in tags %}
+				<li><a href="#">{{ tag.name }}</a></li>
+			{% endfor %}
+		</ul>		
+	</div>
+	<div class="tags">
+		<ul class="side-menu">
+			<li>近期评论</li>
+		</ul>
+	</div>
+	<div class="tags">
+		<ul class="side-menu">
+			<li>我的Twitter</li>
+		</ul>
+	</div>
+	<div class="tags">
+		<ul class="side-menu">
+			<li>友情链接</li>
+			<li><a href="http://pinkyjie.com">进击的马斯特</a></li>
+		</ul>
+	</div>
+
+</div>

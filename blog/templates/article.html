@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% block content %}
+	<div class="content-main">
+		<ul>
+			<li class="post">
+				<div class="inner-content">
+					<h2><a href="#">{{ post.title}}</a></h2>
+					<div class="meta">
+						<i class="icon-user"></i><span style="padding-left:3px;">Jacob</span>
+						<i class="icon-calendar"> 
+							<span>{{ post.pub_date|date:'Y年m月d日' }}</span>
+						</i>
+						<i class="icon-tags"> 
+							<span>
+								{%if post.tags.all|length %}
+									{%for tag in post.tags.all %}
+										<a href="#">{{tag}}</a>
+									{%endfor%}
+								{%else %}
+									<a href="#">其他</a>
+								{%endif%}
+							</span>
+						</i>
+						<i class="icon-bookmark">
+							<span>分类</span>
+						</i>
+					</div>
+					{{ post.content|safe }}
+				</div>
+
+			</li>
+		<ul>
+		<ul>
+			{% if nodes|length > 0 %}
+			{% include "comments.html" %}
+			{% endif %}
+		</ul>
+		<ul>
+			{% include "commentAdd.html" %}
+		</ul>
+	</div>
+	
+{% endblock %}

@@ -29,10 +29,11 @@ urlpatterns = patterns('',
     #Twitter API page
     url(r'^mytweepy',mytweepy.views.get_tweets,name='twitter'),
     #Articles page
-    url(r'^blog',blog.views.show_articles,name='blog'),
+    #url(r'^blog',blog.views.show_articles,name='blog'),
     url(r'^grappelli/',include('grappelli.urls')),
 
     url(r'^comment/add/$',blog.views.comment,name='post_comment'),
-    #Article page
-    url(r'^article/(?P<slug>[-\w]+)/$',blog.views.article,name='blog_article'),
+    
+    # Blog url
+    url(r'^blog/',include('blog.urls')),
 )

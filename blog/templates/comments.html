@@ -1,0 +1,44 @@
+<div class="post">
+
+	<div id="comments" class="inner-content comments">	
+		<i class="icon-comments" title="评论"><h4>{{nodes|length}}个评论</h4>
+		</i>	
+		{% load blog_filters %}			
+		<ol>
+			{% for node in nodes %}
+			{% with nodes|last as lastnode %}
+				<li id="comment-{{ node.id }}" class="{% if node.level == 0 %}{% cycle 'depth-1' 'thread-alt depth-1' %}{% else %}depth-2{% endif %} comment">
+					{% if node.level > 0 %}
+						{% for i in node.level|get_range %}
+							<div class="comment-indent">
+						{% endfor %}
+					{% endif %}
+		            <div class="avatar">
+						<img alt="" src="{% if node.msg_avatar %}{{ node.msg_avatar }}{% else %}/static/images/gravatar.jpg{% endif %}" class="user"/>
+						
+					</div>
+					<div class="comment-block">
+						<div class="comment-header">
+							<cite>
+								<a href="{% if node.site %}{{ node.site }}{% else %}#comment-{{ node.id }}{% endif %}"{% if not node.msg_site %} onclick="return false;"{% else %}target="_blank"{% endif %}>{{ node.msg_user }}</a>
+							</cite>
+							<span class="datetime">
+								<a href="#comment-{{ node.id }}" title="" onclick="return false;">{{ node.msg_date|date:"Y年n月j日" }}</a>
+							</span>
+						</div>
+						<p class="comment-content">{{ node.msg_content|safe }}</p>
+						<span>
+							<a rel="nofollow" class="comment-reply-link" href="#comment-{{ node.id }}" name="回复{{ node.username }}：">回复</a>
+ 						</span>
+					</div>
+					{% if node.level > 1 %}
+					{% for i in node.level|get_range %}
+				</div>
+					{% endfor %}
+				{% endif %}
+			</li>
+			{% endwith %}
+			{% endfor %}
+		</ol>					
+	</div>
+</div>

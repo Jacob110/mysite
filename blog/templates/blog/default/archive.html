@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+	<div class="content-main">
+	{% for archive in archives %}
+		<div class="archives-wrap">
+			<a href="#" class="archive-year">{{ archive.year }}</a>
+			<div class="archives">
+				{% for month in archive.months %}
+					{% for post in month.post %}
+						<div class="post archive-article">
+							<div class="inner-content">
+								<a href="#">{{ post.pub_date|date:'M j' }}</a>
+								<h2><a href="{% url 'blog_archive_detail' archive.year post.pub_date.month post.pub_date.day post.slug %}" >{{ post.title }}</a></h2>
+							</div>
+						</div>						
+					{% endfor %}					
+				{% endfor %}				
+			</div>
+		</div>	
+	{% endfor %}
+	</div>
+{% endblock %}

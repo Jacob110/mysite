@@ -26,7 +26,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -76,7 +75,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'zh'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -84,7 +83,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -95,8 +94,9 @@ STATIC_URL = '/static/'
 #ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
 
 #Templates
-TEMPLATE_DIRS=('/home/jacob/study/django/mysite/templates',)
-#TEMPLATE_DIRS=(os.path.join(os.path.dirname(__file__),'templates').replace('\\','/'),)
+TEMPLATE_DIRS=(
+    BASE_DIR.join('templates'),
+)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -105,7 +105,7 @@ STATICFILES_FINDERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
-    "django.core.context_processors.request",
+    'django.core.context_processors.request',
     "django.core.context_processors.i18n",
     "django.contrib.messages.context_processors.messages",
 )

@@ -27,6 +27,10 @@ class Category(models.Model):
 		verbose_name="分类"
 		verbose_name_plural="分类"
 
+	@permalink
+	def get_absolute_url(self):
+		return('blog_category',None,{'slug':self.slug})
+
 # Tag Model
 class Tag(models.Model):
 	name=models.CharField(max_length=50,unique=True,verbose_name='标签名')
@@ -56,6 +60,8 @@ class BlogPost(models.Model):
 	category=models.ForeignKey(Category,blank=True,null=True)
 	tags=models.ManyToManyField(Tag,blank=True,null=True,through='PostTag',verbose_name='标签')
 	clicks=models.IntegerField(default=0,editable=False,verbose_name='点击次数')
+	# Comment
+	comments=generic.GenericRelation('Comment')
 
 	def __unicode__(self):
 		return self.title
@@ -66,7 +72,7 @@ class BlogPost(models.Model):
 		if(name=="abstract"):
 			return get_abstract(self.content)
 		return super(BlogPost, self).__getattr__(name)
-
+	
 	#点击次数
 	def click_count(self):
 		self.clicks+=1
@@ -126,20 +132,5 @@ class Comment(MPTTModel):
 		"""docstring for MPTTMeta"""
 		parent_attr='msg_reply'
 		
-	# def __getattr__(self, name):
-	# 	if name == "friend_datestr":
-	# 	    return get_friend_datestr(self.post_date)
-	# 	# avatar
-	# 	avatar_reg = re.compile("^avatar_([0-9]+)$")
-	# 	if avatar_reg.match(name):
-	# 		if self.msg_avatar.startswith('http://www.gravatar.com/'):
-	# 			size = avatar_reg.match(name).groups()[0]
-	# 			return self.msg_avatar.split('?')[0] + "?s=" + str(size) + "&d=404"
-	# 		else:
-	# 		    return self.msg_avatar
-	# 	if name == "is_author":
-	# 	    return self.msg_email == settings.ADMINS[0][1]
-	# 	return super(Comment, self).__getattr__(name)
-
 	def __unicode__(self):
 		return self.msg_content

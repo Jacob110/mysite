@@ -43,7 +43,7 @@ class CommentForm(ModelForm):
 	# Hidden Input
 	msg_avatar = forms.URLField(widget=forms.HiddenInput, required=False)
 	msg_reply=forms.ModelChoiceField(Comment.objects.all(),widget=forms.HiddenInput(), required=False)
-	content_type=forms.ModelChoiceField(ContentType.objects.all(), widget=forms.HiddenInput(attrs={'value':22}))
+	content_type=forms.ModelChoiceField(ContentType.objects.all(), widget=forms.HiddenInput())
 	object_id=forms.IntegerField(widget=forms.HiddenInput())
 
 	class Meta:
