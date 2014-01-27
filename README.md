@@ -1,4 +1,4 @@
 Django blog
 ===========
 
-a simple blog based on 'Django'.
+a simple blog based on `Django`.
